@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="messages">
+            <div class="notice">
+                <p style="display: inline;">This website uses cookies by using this site you accept cookies and other services<button class="close" onclick="close_notice()">Close</button></p>
+            </div>
+        </div>
+
+        <div class="main" id="main">
+            <h1 class="title">Maths Mania</h1>
+            <button onclick="start()">Start Game</button>
+        </div>
+        <script>
+            async function close_notice(){
+                document.getElementById("messages").innerHTML = ""
+            }
+        </script>
+        <script src="/assets/js/question.js" async defer></script>
+        <script src="/assets/js/tally.js" async defer></script>
+    </body>
+</html>
