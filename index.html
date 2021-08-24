@@ -11,7 +11,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
     </head>
-    <body>
+    <body id="body">
         <div id="messages">
             <div class="notice">
                 <p style="display: inline;">This website uses cookies by using this site you accept cookies and other services<button class="close" onclick="close_notice()">Close</button></p>
@@ -20,14 +20,14 @@
 
         <div class="main" id="main">
             <h1 class="title">Maths Mania</h1>
-            <button onclick="start()">Start Game</button>
+            <button onclick="start_game()">Start Game</button>
         </div>
         <script>
             async function close_notice(){
                 document.getElementById("messages").innerHTML = ""
             }
         </script>
-        <script src="/assets/js/question.js" async defer></script>
+        <script src="/assets/js/normal_questions.js" async defer></script>
         <script src="/assets/js/tally.js" async defer></script>
     </body>
 </html>

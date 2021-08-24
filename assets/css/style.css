@@ -1,3 +1,4 @@
+
 .question{
     margin: 0px;
     margin-right: 10px;
@@ -12,6 +13,14 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0px;
+    font-size: medium;
+    animation: load 1s;
+}
+button{
+    font-size: small;
+}
+input{
+    font-size: small;
 }
 .question{
     font-family: 'Roboto Mono', monospace;
@@ -19,6 +28,7 @@ body{
 .notice{
     background-color: rgb(240, 240, 240);
     font-size: small;
+
 }
 .close{
     background-color: rgba(255, 255, 255);
@@ -46,4 +56,8 @@ body{
     border-radius: 10px;
     text-align: center;
     padding: 10px;
+}
+@keyframes load {
+    0%{opacity: 0%;}
+    100%{opacity: 100%;}
 }
