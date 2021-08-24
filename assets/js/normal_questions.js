@@ -16,8 +16,25 @@ function sleep(ms) {
     //https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+async function opacity_to_100(id){
+    var opacity = 0
+    for (let i = 0; i < 25; i++) {
+        document.getElementById(id).style.opacity = opacity+"%"
+        opacity = opacity + 4
+        await sleep(10)
+    } 
+}
+async function opacity_to_0(id){
+    var opacity = 100
+    for (let i = 0; i < 25; i++) {
+        document.getElementById(id).style.opacity = opacity+"%"
+        opacity = opacity - 4
+        await sleep(10)
+    }
+}
 
 async function start_game(){
+    await opacity_to_0("main")
     var doc = `<p id="result" class="result">Please answer the question</p>
     <p id="question" class="question"></p>
     <input class="answer" id="answer" type="number" placeholder="Answer" max="9999" min="0">
@@ -35,17 +52,20 @@ async function start_game(){
             submit()
         }
     });
-
+    await opacity_to_100("main")
 
 
 }
 
 // ===========question check===========
 async function add_check(){
+    var opacity = 100
     if(document.getElementById("answer").value == n1+n2){
+        await opacity_to_0("result")
         document.getElementById("result").innerHTML = "Correct"
         document.getElementById("result").style.color = "green"
         new_question()
+        await opacity_to_100("result")
         add_question_tally()
         add_tries_tally()
         num_max = num_max + 2
@@ -53,9 +73,11 @@ async function add_check(){
         document.getElementById("answer").value = ""
     } else {
         add_tries_tally()
+        await opacity_to_0("result")
         document.getElementById("result").innerHTML = "Incorrect"
         document.getElementById("result").style.color = "red"
         document.getElementById("answer").style.color = "red"
+        await opacity_to_100("result")
         if (num_max > 2){
             num_max = num_max - 2
         }
@@ -63,10 +85,13 @@ async function add_check(){
     clear()
 }
 async function subtract_check(){
+    var opacity = 100
     if(document.getElementById("answer").value == n1-n2){
+        await opacity_to_0("result")
+        new_question()
         document.getElementById("result").innerHTML = "Correct"
         document.getElementById("result").style.color = "green"
-        new_question()
+        await opacity_to_100("result")
         add_question_tally()
         add_tries_tally()
         num_max = num_max + 2
@@ -74,9 +99,11 @@ async function subtract_check(){
         document.getElementById("answer").value = ""
     } else {
         add_tries_tally()
+        await opacity_to_0("result")
         document.getElementById("result").innerHTML = "Incorrect"
         document.getElementById("result").style.color = "red"
         document.getElementById("answer").style.color = "red"
+        await opacity_to_100("result")
         if (num_max > 2){
             num_max = num_max - 2
         }
@@ -94,14 +121,18 @@ async function submit(){
 // ===========messages and question===========
 async function clear(){
     await sleep(1000)
+    await opacity_to_0("result")
     document.getElementById("result").innerHTML = "Please answer the question"
     document.getElementById("result").style.color = "black"
     document.getElementById("answer").style.color = "black"
+    await opacity_to_100("result")
+
 }
 
 
 
 async function new_question(){
+    await opacity_to_0("question")
     type = "add"
     if(RandomInt(0,1) == 1){
         type = "subtract"
@@ -117,15 +148,11 @@ async function new_question(){
         n2 = RandomInt(1,num_max+1)
         document.getElementById("question").innerHTML = n1+" - "+n2+"="
     }
+    await opacity_to_100("question")
 }
 
 async function menu(){
-    var opacity = 100
-    for (let i = 0; i < 25; i++) {
-        document.getElementById("body").style.opacity = opacity+"%"
-        opacity = opacity - 4
-        await sleep(1)
-    }
+    await opacity_to_0("body")
     document.getElementById("body").style.opacity = "0%"
     window.location.reload()
 }

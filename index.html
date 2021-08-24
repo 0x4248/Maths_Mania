@@ -12,19 +12,38 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
     </head>
     <body id="body">
+        <div class="top_nav" id="top_nav">
+            <div></div>
+            <h1 class="title">Maths Mania</h1>
+            <div></div>
+        </div>
+        <hr>
         <div id="messages">
-            <div class="notice">
-                <p style="display: inline;">This website uses cookies by using this site you accept cookies and other services<button class="close" onclick="close_notice()">Close</button></p>
+            <div class="cookie_notice">
+                <p style="display: inline;">This website uses cookies by using this site you accept cookies and other services<button class="close" onclick="close_cookie_notice()">Accept cookies</button></p>
             </div>
         </div>
 
         <div class="main" id="main">
-            <h1 class="title">Maths Mania</h1>
+            <h2>Welcome to Maths Mania</h2>
+            <hr>
             <button onclick="start_game()">Start Game</button>
         </div>
         <script>
-            async function close_notice(){
+            function sleep(ms) {
+                //https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+        </script>
+        <script defer>
+            if(localStorage.getItem("cookie_alert") == "false"){
                 document.getElementById("messages").innerHTML = ""
+            }
+            async function close_cookie_notice(){
+                document.getElementById("messages").innerHTML = ""
+                localStorage.setItem("cookie_alert","false")
+                
             }
         </script>
         <script src="/assets/js/normal_questions.js" async defer></script>

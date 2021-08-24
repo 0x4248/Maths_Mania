@@ -46,6 +46,7 @@ input{
 }
 .title{
     text-shadow: 3px 3px 0px rgb(216, 216, 216);
+    margin: 5px;
 }
 .main{
     margin: auto;
@@ -56,6 +57,10 @@ input{
     border-radius: 10px;
     text-align: center;
     padding: 10px;
+}
+.top_nav{
+    display: flex;
+    justify-content: space-between;
 }
 @keyframes load {
     0%{opacity: 0%;}
