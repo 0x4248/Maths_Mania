@@ -35,6 +35,7 @@ async function opacity_to_0(id){
 }
 
 async function start_multiplication_game(){
+    num_max = 5
     await opacity_to_0("main")
     var doc = `<p id="result" class="result">Please answer the question</p>
     <p id="question" class="question"></p>
