@@ -42,7 +42,7 @@ async function start_division_game(){
     <p id="question" class="question"></p>
     <input class="answer" id="answer" type="number" placeholder="Answer" max="9999" min="0">
     <br>
-    <button onclick="submit()">Check</button>
+    <button onclick="division_submit()">Check</button>
     <button onclick="new_division_question()">Skip</button>
     <button onclick="menu()">menu</button>
     <p id="tries_tally" style="margin-bottom: 0px;">Tries:</p>
@@ -52,7 +52,7 @@ async function start_division_game(){
     var enter = document.getElementById("answer");
     enter.addEventListener("keyup", function(event) {
         if (event.key === "Enter") {
-            submit()
+            division_submit()
         }
     });
     await opacity_to_100("main")
@@ -90,7 +90,7 @@ async function division_check(){
     clear()
 }
 
-async function submit(){
+async function division_submit(){
     division_check()
 }
 
