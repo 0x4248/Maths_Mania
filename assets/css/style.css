@@ -18,6 +18,9 @@ body{
 }
 button{
     font-size: small;
+    border: 0px;
+    background-color: #C9E1FF;
+    border-radius: 5px;
 }
 input{
     font-size: small;
