@@ -1,0 +1,16 @@
+{
+    "name": "Maths_Mania",
+    "description": "A simple maths game that gets increasingly harder.",
+    "version": "",
+    "main_file": "index.html",
+    "author": "Lewis Evans",
+    "license": "GNU General Public License v3.0",
+    "url": "/Maths_Mania",
+    "email": "none",
+    "languages": [
+        "html",
+        "css",
+        "javascript"
+    ],
+    "actions": {}
+}
